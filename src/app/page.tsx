@@ -8,7 +8,6 @@ const ThinkNiceNow = () => {
   const [bgImage, setBgImage] = useState('');
   const [showPopup, setShowPopup] = useState(false);
   const [currentPopup, setCurrentPopup] = useState(0);
-  const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '-50%']);
@@ -44,7 +43,6 @@ const ThinkNiceNow = () => {
       const reader = new FileReader();
       reader.onload = (e) => {
         if (e.target && typeof e.target.result === 'string') {
-          setUploadedImage(e.target.result);
           setBgImage(e.target.result);
         }
       };
@@ -248,7 +246,7 @@ const ThinkNiceNow = () => {
                     />
                     {bgImage && (
                       <button
-                        onClick={() => {setBgImage(''); setUploadedImage(null);}}
+                        onClick={() => {setBgImage('');}}
                         className="text-red-500 hover:text-red-700 text-sm"
                       >
                         Remove Background
@@ -282,7 +280,7 @@ const ThinkNiceNow = () => {
                 whileHover={{ scale: 1.05 }}
               >
                 <div className="text-lg font-medium text-gray-700">
-                  "{quote}"
+                  &quot;{quote}&quot;
                 </div>
               </motion.div>
             ))}
