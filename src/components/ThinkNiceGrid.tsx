@@ -84,14 +84,7 @@ const ThinkNiceGrid: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 p-4 lg:p-8">
-      <div className="mb-4">
-        <input 
-          type="file" 
-          accept="image/*" 
-          onChange={handleImageUpload} 
-          className="text-sm text-gray-700"
-        />
-      </div>
+      
       <div className="grid grid-cols-4 grid-rows-6 gap-4 lg:gap-6">
         {/* Row 1: Four flip cards */}
         {gridItems.slice(0, 4).map((item) => (
@@ -116,12 +109,21 @@ const ThinkNiceGrid: React.FC = () => {
         ) : (
           <div className="col-span-2 row-span-2 bg-white rounded-lg flex items-center justify-center p-4 shadow-lg">
             <div className="text-center">
-              <div className="text-lg sm:text-2xl lg:text-4xl font-black text-black leading-tight">
-                THINK<br />NICE
-              </div>
-              <div className="text-xs sm:text-sm lg:text-base font-normal text-black mt-1">
-                now
-              </div>
+              <div className="mb-4 text-center">
+  <label 
+    htmlFor="imageUpload" 
+    className="cursor-pointer bg-gradient-to-r from-purple-600 to-pink-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:from-purple-700 hover:to-pink-600 transition duration-300 ease-in-out transform hover:scale-105 text-xl"
+  >
+    Upload Your Awesome Logo Here!
+  </label>
+  <input 
+    id="imageUpload"
+    type="file" 
+    accept="image/*" 
+    onChange={handleImageUpload} 
+    className="hidden"
+  />
+</div>
             </div>
           </div>
         )}
