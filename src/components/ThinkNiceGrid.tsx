@@ -49,7 +49,7 @@ const FlipCard: React.FC<FlipCardProps> = ({ imageSrc, backContent }) => {
           }}
         >
           <div className="w-full h-full flex items-center justify-center p-4">
-            <p className={`text-white text-center transition-transform duration-300 hover:scale-105 hover:text-pink-300 ${backContent ? 'font-graffiti text-xl animate-glow' : 'text-lg font-bold'}`}>
+            <p className={`text-white text-center transition-transform duration-300 hover:scale-105 hover:text-pink-300 ${backContent ? "font-['Permanent_Marker'] text-xl animate-glow" : 'text-lg font-bold'}`}>
               {backContent || (
                 <>
                   COMING<br />SOON
@@ -128,7 +128,7 @@ const ThinkNiceGrid: React.FC = () => {
     setIsClient(true);
     const logoNumbers = Array.from({ length: totalFlipCards }, (_, i) => ((i % availableLogos) + 1));
     const shuffledLogos = [...logoNumbers].sort(() => Math.random() - 0.5);
-    let items: GridItem[] = shuffledLogos.map((logoNumber, index) => ({
+    const items: GridItem[] = shuffledLogos.map((logoNumber, index) => ({
       id: index,
       logoNumber,
     }));
